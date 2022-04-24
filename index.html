@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Get/Set Generator</title>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+<body>
+    <h1>Java Getter and Setter Generator</h1>
+    <label for="varType">Variable type </label>
+    <input type="text" name="varType" id="varType" class="inputField">
+    <label for="varName">Variable name</label>
+    <input type="text" name="varName" id="varName" class="inputField">
+    <label for="indentation">Indentations</label>
+    <input type="number" name="indentation" id="indentation" class="inputField" min="0" value="1">
+    <button class="btn" id="submit" name="submit">Generate</button>
+    <textarea name="output" id="output" cols="30" rows="10"></textarea>
+    <code name="output" id="output"></code>
+    <script src="app.js"></script>
+</body>
+</html>
