@@ -10,12 +10,17 @@
 </head>
 <body>
     <h1>Java Getter and Setter Generator</h1>
-    <label for="varType">Variable type </label>
-    <input type="text" name="varType" id="varType" class="inputField">
-    <label for="varName">Variable name</label>
-    <input type="text" name="varName" id="varName" class="inputField">
-    <label for="indentation">Indentations</label>
-    <input type="number" name="indentation" id="indentation" class="inputField" min="0" value="1">
+    <p id="info">Be sure to place cursor on the indentation level where the method header starts, NOT the beginning of the line</p>
+    <div>
+        <label for="varType">Variable type </label>
+        <input type="text" name="varType" id="varType" class="inputField">
+        <label for="varName">Variable name</label>
+        <input type="text" name="varName" id="varName" class="inputField">
+        <label for="indentation">Indentations</label>
+        <input type="number" name="indentation" id="indentation" class="inputField" min="0" value="1">
+        <label for="seperateMethods">To be copied individually</label>
+        <input type="checkbox" name="seperateMethods" id="seperateMethods" class="inputField">
+    </div>
     <button class="btn" id="submit" name="submit">Generate</button>
     <textarea name="output" id="output" cols="30" rows="10"></textarea>
     <code name="output" id="output"></code>
