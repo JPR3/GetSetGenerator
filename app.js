@@ -17,6 +17,7 @@ let selectedLanguage = Language.Java;
 
 button.addEventListener('click', function() {
     if(indInput.valueAsNumber < 0){
+        
         indInput.value = 0;
         alert("Must have a positive number of indentations")
     }
@@ -27,20 +28,46 @@ button.addEventListener('click', function() {
         let capitalName = name[0].toUpperCase() + name.substring(1)
         let param = " new" + capitalName;
 
-        output.textContent = 
-        "public " + type + " get" + capitalName + "(){\r\n" +
-        spacer + "    return " + name +";\r\n" + 
-        spacer + "}" +
-        "\r\n\n";
-        output.textContent += "public void set" + capitalName + "(" + type + param + "){\r\n" +
-        spacer + "    " + name +  " =" + param + ";\r\n" +
-        spacer + "}";
-        if(!seperateGen.checked)
-        {
-            let index = output.textContent.indexOf("public void set");
-            output.textContent = output.textContent.substring(0, index) + spacer + output.textContent.substring(index);
+        switch(selectedLanguage){
+            case Language.Java:{
+                output.textContent = 
+                "public " + type + " get" + capitalName + "(){\r\n" +
+                spacer + "    return " + name +";\r\n" + 
+                spacer + "}" +
+                "\r\n\n";
+                if(!seperateGen.checked){
+                    output.textContent += spacer;
+                }
+                output.textContent += 
+                "public void set" + capitalName + "(" + type + param + "){\r\n" +
+                spacer + "    " + name +  " =" + param + ";\r\n" +
+                spacer + "}";
+                break;
+            }
+            case Language.Python:{
+                output.textContent =
+                "This is where the python methods will go!";
+                break;
+            }
+            default:
+                output.textContent = "Uh oh :(";
+                break;
+                
         }
+        
+        
     }
     
 });
-//function switchLanguage(evt,)
+function switchLanguage(evt, language){
+    switch(language){
+        case "Java":
+            selectedLanguage = Language.Java;
+            break;
+        case "Python":
+            selectedLanguage = Language.Python;
+            break;
+        default:
+            alert("Error: Language selection invalid");
+    }
+}
