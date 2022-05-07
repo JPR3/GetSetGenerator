@@ -14,3 +14,13 @@
     text-align: left;
     width: 20%;
 }
+#tabs button{
+    background-color: white;
+    border-width: 1px;
+}
+#tabs button.active{
+    background-color: #ddd;
+}
+#tabs button:hover{
+    background-color: #ccc;
+}

@@ -1,11 +1,19 @@
 'use strict'
 
+class Language{
+    static Java = new Language("Java");
+    static Python = new Language("Python");
+    constructor(name){
+        this.name = name;
+    }
+}
 const button = document.querySelector('.btn');
 const output = document.querySelector('#output');
 const nameInput = document.querySelector('#varName');
 const typeInput = document.querySelector('#varType');
 const indInput = document.querySelector('#indentation');
 const seperateGen = document.querySelector('#seperateMethods')
+let selectedLanguage = Language.Java;
 
 button.addEventListener('click', function() {
     if(indInput.valueAsNumber < 0){
@@ -23,14 +31,16 @@ button.addEventListener('click', function() {
         "public " + type + " get" + capitalName + "(){\r\n" +
         spacer + "    return " + name +";\r\n" + 
         spacer + "}" +
-        "\r\n\n"; 
-        if(!seperateGen.checked)
-        {
-            output.textContent += spacer;
-        }
+        "\r\n\n";
         output.textContent += "public void set" + capitalName + "(" + type + param + "){\r\n" +
         spacer + "    " + name +  " =" + param + ";\r\n" +
         spacer + "}";
+        if(!seperateGen.checked)
+        {
+            let index = output.textContent.indexOf("public void set");
+            output.textContent = output.textContent.substring(0, index) + spacer + output.textContent.substring(index);
+        }
     }
     
 });
+//function switchLanguage(evt,)
